@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffc8ec">
+  <title>axayacatl ♡ eth passport</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pastel: #ffe4f6;
+      --pastel-pink: #ffc9ec;
+      --pink: #ff8bd5;
+      --neon-pink: #ff21b6;
+      --neon-red: #ff3f71;
+      --deep-pink: #a90061;
+      --text: #70234f;
+      --muted: #b66e9b;
+      --white: #fffaff;
+      --line: #f5b9df;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px 14px;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% 12%, #ffd0f1 0%, transparent 38%),
+        radial-gradient(ellipse at 90% 88%, #ffbce9 0%, transparent 40%),
+        linear-gradient(145deg, #fff0fb, #ffdff4 50%, #fce8ff);
+      font-family: "Pixelify Sans", monospace;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(#ff21b6 1px, transparent 1px),
+        radial-gradient(#ff3f71 1px, transparent 1px);
+      background-size: 37px 37px, 61px 61px;
+      background-position: 0 0, 18px 23px;
+      opacity: .13;
+      animation: drift 24s linear infinite;
+    }
+
+    @keyframes drift {
+      to {
+        background-position: 180px 180px, -100px 120px;
+      }
+    }
+
+    @keyframes card-appear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-card {
+      width: min(100%, 510px);
+      overflow: hidden;
+      border: 2px solid #ff9cdb;
+      border-radius: 22px;
+      background: rgba(255, 250, 255, .96);
+      box-shadow: 5px 6px 0 #f7b7e1;
+      animation: card-appear .5s ease both;
+    }
+
+    .cover {
+      height: 91px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 30%, #fff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 70%, #fff 0 3px, transparent 4px),
+        linear-gradient(115deg, #ffc8ec, #ff91d7 48%, #ff6b9d);
+      background-size: 39px 39px, 57px 57px, auto;
+    }
+
+    .cover::before {
+      content: "♡  ✦  ♡  ✧  ♡  ✦";
+      position: absolute;
+      right: 13px;
+      bottom: 12px;
+      color: rgba(255, 255, 255, .9);
+      font-family: "Silkscreen", monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    .profile-content {
+      padding: 0 21px 20px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: -35px;
+      position: relative;
+    }
+
+    .avatar {
+      flex: 0 0 76px;
+      width: 76px;
+      height: 76px;
+      display: block;
+      object-fit: cover;
+      border: 4px solid #fffaff;
+      border-radius: 19px;
+      background: #ffd9f2;
+      box-shadow: 0 0 0 2px #ff91d7;
+      image-rendering: pixelated;
+    }
+
+    .profile-info {
+      min-width: 0;
+      padding-top: 39px;
+    }
+
+    .profile-name {
+      margin: 0;
+      color: #ff21a9;
+      font-family: "Silkscreen", monospace;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .profile-handle {
+      margin-top: 4px;
+      color: #bd5b9c;
+      font-family: "Pixelify Sans", monospace;
+      font-size: .8rem;
+    }
+
+    .bio {
+      margin: 13px 0 0;
+      color: #87365f;
+      font-size: .9rem;
+      line-height: 1.65;
+    }
+
+    .bio strong {
+      color: #ff008f;
+      font-weight: 700;
+    }
+
+    .bio-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      border: 2px solid #ff91d7;
+      border-radius: 10px;
+      padding: 6px 10px;
+      background: #ffe6f7;
+      color: #e90091;
+      font-family: "Silkscreen", monospace;
+      font-size: .65rem;
+    }
+
+    .bio-tag::before {
+      content: "✦";
+      color: #ff3f71;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 2px solid #ffb0e3;
+      border-radius: 10px;
+      padding: 7px 11px;
+      color: #c82b91;
+      background: #fff5fc;
+      font-size: .78rem;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+
+    .profile-link:hover {
+      transform: translateY(-2px);
+      background: #ffe1f5;
+    }
+
+    .badge-area {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 2px dashed #ffd0ed;
+    }
+
+    .badge-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 13px;
+    }
+
+    .badge-title {
+      margin: 0;
+      color: #d40091;
+      font-family: "Silkscreen", monospace;
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+    .badge-count {
+      color: #d26aa9;
+      font-size: .75rem;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 42px;
+      max-width: 100%;
+      border: 2px solid #ffb4e3;
+      border-radius: 10px;
+      padding: 7px 10px;
+      background: #fff5fc;
+      text-decoration: none;
+      transition: transform .2s, background .2s;
+    }
+
+    .badge:hover {
+      transform: translateY(-3px);
+      background: #ffe6f7;
+      border-color: #ff70c9;
+    }
+
+    .badge img {
+      display: block;
+      max-width: 100%;
+      max-height: 38px;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .badge-fallback {
+      color: #d75b9c;
+      font-size: .8rem;
+    }
+
+    .badge-status {
+      margin: 12px 0 0;
+      color: #c07aa3;
+      font-size: .72rem;
+      line-height: 1.5;
+    }
+
+    .badge-status a {
+      color: #d92b9a;
+      text-decoration: none;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 13px;
+      border-top: 2px dashed #ffd0ed;
+      color: #c780ad;
+      font-family: "Silkscreen", monospace;
+      font-size: .55rem;
+      line-height: 1.8;
+    }
+
+    .footer-symbol {
+      color: #ff21b6;
+      letter-spacing: 3px;
+    }
+
+    @media (max-width: 380px) {
+      .profile-content {
+        padding-inline: 15px;
+      }
+
+      .profile-header {
+        gap: 11px;
+      }
+
+      .avatar {
+        flex-basis: 66px;
+        width: 66px;
+        height: 66px;
+        border-radius: 16px;
+      }
+
+      .profile-name {
+        font-size: .95rem;
+      }
+
+      .profile-info {
+        padding-top: 39px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="profile-card">
+    <div class="cover" aria-hidden="true"></div>
+
+    <div class="profile-content">
+      <header class="profile-header">
+        <img
+          class="avatar"
+          src="https://axayacatl.neocities.org/images/droplet.png"
+          alt="axayacatl's profile icon"
+        >
+
+        <div class="profile-info">
+          <h1 class="profile-name">axayacatl</h1>
+          <div class="profile-handle">@axayacatl</div>
+        </div>
+      </header>
+
+      <p class="bio">
+        <strong>demonologist</strong> · software engineering · computational systems.<br>
+        an online personality exploring technology, religious sciences, and digital realms.
+      </p>
+
+      <div class="bio-tag">demonologist</div>
+
+      <nav class="profile-links" aria-label="profile links">
+        <a
+          class="profile-link"
+          href="https://github.com/axayacatl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >⌘ github ↗</a>
+
+        <a
+          class="profile-link"
+          href="https://axayacatl.neocities.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >♡ website ↗</a>
+      </nav>
+
+      <section class="badge-area" aria-labelledby="badge-title">
+        <div class="badge-heading">
+          <h2 class="badge-title" id="badge-title">♡ badges</h2>
+          <span class="badge-count" id="badge-count">loading...</span>
+        </div>
+
+        <div class="badge-list" id="badge-list" aria-live="polite">
+          <span class="badge-fallback">loading little badges… ♡</span>
+        </div>
+
+        <p class="badge-status" id="badge-status">
+          <a
+            href="https://github.com/axayacatl/axayacatl/tree/main/custom_badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >badge archive ↗</a>
+        </p>
+      </section>
+
+      <footer class="card-footer">
+        <span>axayacatl · eth passport</span>
+        <span class="footer-symbol">♡ ✦ ♡</span>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const owner = "axayacatl";
+      const repo = "axayacatl";
+      const branch = "main";
+      const folder = "custom_badge";
+
+      const badgeList = document.getElementById("badge-list");
+      const badgeCount = document.getElementById("badge-count");
+      const badgeStatus = document.getElementById("badge-status");
+
+      const imageExtensions = [
+        "png", "jpg", "jpeg", "gif", "webp", "svg", "avif"
+      ];
+
+      function getExtension(filename) {
+        return filename.split(".").pop().toLowerCase();
+      }
+
+      function rawUrl(path) {
+        return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path
+          .split("/")
+          .map(encodeURIComponent)
+          .join("/")}`;
+      }
+
+      function githubUrl(path) {
+        return `https://github.com/${owner}/${repo}/blob/${branch}/${path
+          .split("/")
+          .map(encodeURIComponent)
+          .join("/")}`;
+      }
+
+      function createBadge(file) {
+        const link = document.createElement("a");
+        link.className = "badge";
+        link.href = file.html_url || githubUrl(file.path);
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.title = file.name;
+
+        const ext = getExtension(file.name);
+
+        if (imageExtensions.includes(ext)) {
+          const image = document.createElement("img");
+          image.src = rawUrl(file.path);
+          image.alt = file.name;
+          image.loading = "lazy";
+          image.decoding = "async";
+
+          image.addEventListener("error", () => {
+            image.remove();
+
+            const fallback = document.createElement("span");
+            fallback.className = "badge-fallback";
+            fallback.textContent = "♡ " + file.name;
+            link.appendChild(fallback);
+          }, { once: true });
+
+          link.appendChild(image);
+        } else {
+          const fallback = document.createElement("span");
+          fallback.className = "badge-fallback";
+          fallback.textContent = file.name;
+          link.appendChild(fallback);
+        }
+
+        return link;
+      }
+
+      async function loadBadges() {
+        badgeList.replaceChildren();
+
+        const loading = document.createElement("span");
+        loading.className = "badge-fallback";
+        loading.textContent = "loading badges… ♡";
+        badgeList.appendChild(loading);
+
+        const api =
+          `https://api.github.com/repos/${owner}/${repo}/contents/${folder}?ref=${branch}`;
+
+        try {
+          const response = await fetch(api, {
+            headers: {
+              Accept: "application/vnd.github+json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`github api error: ${response.status}`);
+          }
+
+          const files = await response.json();
+
+          if (!Array.isArray(files)) {
+            throw new Error("badge folder did not return a file list");
+          }
+
+          const badges = files
+            .filter((file) => file.type === "file")
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+          badgeList.replaceChildren();
+
+          if (badges.length === 0) {
+            const empty = document.createElement("span");
+            empty.className = "badge-fallback";
+            empty.textContent = "no badges found ♡";
+            badgeList.appendChild(empty);
+          } else {
+            badges.forEach((file) => {
+              badgeList.appendChild(createBadge(file));
+            });
+          }
+
+          badgeCount.textContent = `${badges.length} badges`;
+          badgeStatus.textContent = "custom_badge · github";
+        } catch (error) {
+          badgeList.replaceChildren();
+
+          const fallback = document.createElement("a");
+          fallback.className = "badge";
+          fallback.href =
+            `https://github.com/${owner}/${repo}/tree/${branch}/${folder}`;
+          fallback.target = "_blank";
+          fallback.rel = "noopener noreferrer";
+          fallback.textContent = "open badge collection ↗";
+
+          badgeList.appendChild(fallback);
+          badgeCount.textContent = "collection";
+          badgeStatus.textContent =
+            "could not load badges automatically. open the github collection to browse.";
+        }
+      }
+
+      loadBadges();
+    })();
+  </script>
+</body>
+</html>
