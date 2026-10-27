@@ -21,4 +21,4 @@ the cemetery wifi is surprisingly stable ♡
 
 [![ETH Protocol Study](https://img.shields.io/badge/ETH-PROTOCOL%20STUDY-D9EEFF?style=for-the-badge&logo=ethereum&logoColor=465B70&labelColor=BDDDF5)](https://ethskills.com/)
 
-[![onchain foodie ♡](https://img.shields.io/badge/onchain-foodie%20%E2%99%A1-ff00aa?style=flat-square)](https://based.cooking/)]
+[![onchain foodie ♡](https://img.shields.io/badge/onchain-foodie%20%E2%99%A1-ff00aa?style=flat-square)](https://based.cooking/)
