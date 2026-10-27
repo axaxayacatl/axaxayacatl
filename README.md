@@ -19,4 +19,4 @@ the cemetery wifi is surprisingly stable ♡
 
 ![bat](https://img.shields.io/badge/✦-tiny%20bat-77717a?style=flat-square&labelColor=e8a9c9)
 
-[![ETH Protocol Study](https://img.shields.io/badge/AXA-ETH%20PROTOCOL%20STUDY-d9a7c3?style=for-the-badge&logo=ethereum&logoColor=29232d)](https://ethskills.com/)
+[![ETH Protocol Study](https://img.shields.io/badge/ETH-PROTOCOL%20STUDY-D9EEFF?style=for-the-badge&logo=ethereum&logoColor=465B70&labelColor=BDDDF5)](https://ethskills.com/)
