@@ -19,7 +19,7 @@ the cemetery wifi is surprisingly stable ♡
 
 ![bat](https://img.shields.io/badge/✦-tiny%20bat-77717a?style=flat-square&labelColor=e8a9c9)
 
-[![ETH Protocol Study](https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethblue.png)](https://ethskills.com/)[![Ethereum Magicians](https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/eth-magicians.png)](https://ethereum-magicians.org/)
+<a href="https://ethskills.com/"><img src="https://raw.githubusercontent.com/axayacatl/axayacatl/main/custom_badge/ethblue.png" alt="ETH Protocol Study"></a><a href="https://ethereum-magicians.org/"><img src="https://raw.githubusercontent.com/axayacatl/axayacatl/main/custom_badge/eth-magicians.png" alt="Ethereum Magicians"></a>
 
 javascript-application-logic / event-driven-programming / json-data-processing / dom-manipulation / browser-apis / client-side-file-handling / node.js-cli-tooling / filesystem-operations / input-validation / configuration-analysis / automated-reporting / bug-investigation / regression-testing / open-source-maintenance / wallet-integration / cryptographic-verification
 
