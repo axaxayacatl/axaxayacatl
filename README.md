@@ -14,3 +14,7 @@
 ![secret](https://img.shields.io/badge/secret-little%20world-aaa2ad?style=flat-square)
 ![do not disturb](https://img.shields.io/badge/do%20not-disturb-cb9ab9?style=flat-square)
 ![night shift](https://img.shields.io/badge/night-shift-77717a?style=flat-square)
+
+the cemetery wifi is surprisingly stable ♡
+
+![bat](https://img.shields.io/badge/✦-tiny%20bat-77717a?style=flat-square&labelColor=e8a9c9)
