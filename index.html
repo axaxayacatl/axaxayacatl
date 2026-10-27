@@ -13,16 +13,9 @@
 
   <style>
     :root {
-      --pastel: #ffe4f6;
-      --pastel-pink: #ffc9ec;
       --pink: #ff8bd5;
       --neon-pink: #ff21b6;
-      --neon-red: #ff3f71;
-      --deep-pink: #a90061;
       --text: #70234f;
-      --muted: #b66e9b;
-      --white: #fffaff;
-      --line: #f5b9df;
     }
 
     * {
@@ -150,7 +143,6 @@
     .profile-handle {
       margin-top: 4px;
       color: #bd5b9c;
-      font-family: "Pixelify Sans", monospace;
       font-size: .8rem;
     }
 
@@ -161,19 +153,14 @@
       line-height: 1.65;
     }
 
-    .bio strong {
-      color: #ff008f;
-      font-weight: 700;
-    }
-
     .bio-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       margin-top: 10px;
+      padding: 6px 10px;
       border: 2px solid #ff91d7;
       border-radius: 10px;
-      padding: 6px 10px;
       background: #ffe6f7;
       color: #e90091;
       font-family: "Silkscreen", monospace;
@@ -196,9 +183,9 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
+      padding: 7px 11px;
       border: 2px solid #ffb0e3;
       border-radius: 10px;
-      padding: 7px 11px;
       color: #c82b91;
       background: #fff5fc;
       font-size: .78rem;
@@ -214,7 +201,8 @@
     .badge-area {
       margin-top: 22px;
       padding-top: 16px;
-      border-top: 2px dashed #ffd0ed;
+      border: none;
+      background: transparent;
     }
 
     .badge-heading {
@@ -241,63 +229,44 @@
     .badge-list {
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 0;
-      margin: 0;
-      padding: 0;
-      line-height: 0;
-      font-size: 0;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
     }
 
-    .badge-list a {
-      display: block;
-      flex: 0 0 auto;
-      width: max-content;
-      height: auto;
-      margin: 0;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 0;
+      max-width: 100%;
       padding: 0;
       border: none;
       border-radius: 0;
       background: transparent;
-      line-height: 0;
-      font-size: 0;
       text-decoration: none;
       transition: transform .2s;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .badge-list a:hover {
+    .badge:hover {
       transform: translateY(-2px);
       border: none;
       background: transparent;
     }
 
-    .badge-list img {
+    .badge img {
       display: block;
       width: auto;
-      height: auto;
-      max-width: none;
-      max-height: none;
-      margin: 0;
-      padding: 0;
-      border: none;
-      border-radius: 0;
+      max-width: 100%;
+      max-height: 38px;
+      object-fit: contain;
+      image-rendering: pixelated;
       background: transparent;
-      object-fit: initial;
-      image-rendering: auto;
-    }
-
-    .badge-fallback {
-      color: #d75b9c;
-      font-family: "Pixelify Sans", monospace;
-      font-size: .8rem;
-      line-height: normal;
     }
 
     .badge-status {
       margin: 12px 0 0;
-      padding: 0;
       color: #c07aa3;
       font-size: .72rem;
       line-height: 1.5;
@@ -328,6 +297,10 @@
     }
 
     @media (max-width: 380px) {
+      body {
+        padding: 16px 10px;
+      }
+
       .profile-content {
         padding-inline: 15px;
       }
@@ -349,6 +322,10 @@
 
       .profile-info {
         padding-top: 39px;
+      }
+
+      .badge img {
+        max-height: 34px;
       }
     }
 
@@ -408,21 +385,40 @@
       <section class="badge-area" aria-labelledby="badge-title">
         <div class="badge-heading">
           <h2 class="badge-title" id="badge-title">♡ badges</h2>
-          <span class="badge-count" id="badge-count">2 badges</span>
+          <span class="badge-count">02 badges</span>
         </div>
 
-        <div class="badge-list" id="badge-list" aria-live="polite"><a
-          href="https://ethereum-magicians.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="ETH Magicians community"
-          aria-label="Visit ETH Magicians community"
-        ><img
-          src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/eth-magicians.png"
-          alt="ETH Magicians"
-        ></a></div>
+        <div class="badge-list">
+          <a
+            class="badge"
+            href="https://ethskills.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="ETH Skills"
+          >
+            <img
+              src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethskills.png"
+              alt="ETH Skills badge"
+              loading="lazy"
+            >
+          </a>
 
-        <p class="badge-status" id="badge-status">
+          <a
+            class="badge"
+            href="https://ethereum-magicians.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ethereum Magicians"
+          >
+            <img
+              src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethmagicians.png"
+              alt="Ethereum Magicians badge"
+              loading="lazy"
+            >
+          </a>
+        </div>
+
+        <p class="badge-status">
           <a
             href="https://github.com/axaxayacatl/axaxayacatl/tree/main/custom_badge"
             target="_blank"
@@ -437,130 +433,6 @@
       </footer>
     </div>
   </main>
-
-  <script>
-    (() => {
-      "use strict";
-
-      const owner = "axaxayacatl";
-      const repo = "axaxayacatl";
-      const branch = "main";
-      const folder = "custom_badge";
-
-      const badgeList = document.getElementById("badge-list");
-      const badgeCount = document.getElementById("badge-count");
-      const badgeStatus = document.getElementById("badge-status");
-
-      const pinnedBadges = new Set([
-        "eth-magicians.png",
-        "eth-skills.png"
-      ]);
-
-      const imageExtensions = [
-        "png", "jpg", "jpeg", "gif", "webp", "svg", "avif"
-      ];
-
-      function getExtension(filename) {
-        return filename.split(".").pop().toLowerCase();
-      }
-
-      function rawUrl(path) {
-        return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path
-          .split("/")
-          .map(encodeURIComponent)
-          .join("/")}`;
-      }
-
-      function githubUrl(path) {
-        return `https://github.com/${owner}/${repo}/blob/${branch}/${path
-          .split("/")
-          .map(encodeURIComponent)
-          .join("/")}`;
-      }
-
-      function createBadge(file) {
-        const link = document.createElement("a");
-        link.href = file.name.toLowerCase().includes("magician")
-          ? "https://ethereum-magicians.org/"
-          : file.name.toLowerCase().includes("skill")
-            ? "https://ethskills.com/"
-            : file.html_url || githubUrl(file.path);
-
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.title = file.name;
-
-        const ext = getExtension(file.name);
-
-        if (imageExtensions.includes(ext)) {
-          const image = document.createElement("img");
-          image.src = rawUrl(file.path);
-          image.alt = file.name;
-          image.loading = "lazy";
-          image.decoding = "async";
-
-          image.addEventListener("error", () => {
-            image.remove();
-
-            const fallback = document.createElement("span");
-            fallback.className = "badge-fallback";
-            fallback.textContent = file.name;
-            link.appendChild(fallback);
-          }, { once: true });
-
-          link.appendChild(image);
-        } else {
-          const fallback = document.createElement("span");
-          fallback.className = "badge-fallback";
-          fallback.textContent = file.name;
-          link.appendChild(fallback);
-        }
-
-        return link;
-      }
-
-      async function loadBadges() {
-        const api =
-          `https://api.github.com/repos/${owner}/${repo}/contents/${folder}?ref=${branch}`;
-
-        try {
-          const response = await fetch(api, {
-            headers: {
-              Accept: "application/vnd.github+json"
-            }
-          });
-
-          if (!response.ok) {
-            throw new Error(`GitHub API error: ${response.status}`);
-          }
-
-          const files = await response.json();
-
-          if (!Array.isArray(files)) {
-            throw new Error("Badge folder did not return a file list");
-          }
-
-          const badges = files
-            .filter((file) =>
-              file.type === "file" &&
-              !pinnedBadges.has(file.name) &&
-              imageExtensions.includes(getExtension(file.name))
-            )
-            .sort((a, b) => a.name.localeCompare(b.name));
-
-          badges.forEach((file) => {
-            badgeList.appendChild(createBadge(file));
-          });
-
-          badgeCount.textContent = `${badges.length + pinnedBadges.size} badges`;
-        } catch (error) {
-          badgeCount.textContent = `${badgeList.querySelectorAll("img").length} badges`;
-        }
-      }
-
-      loadBadges();
-    })();
-  </script>
 </body>
 </html>
 
