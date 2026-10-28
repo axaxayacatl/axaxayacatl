@@ -1,654 +1,316 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffc8ec">
-  <title>axayacatl ♡ eth passport</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --pink: #ff8bd5;
-      --neon-pink: #ff21b6;
-      --text: #70234f;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      padding: 24px 14px;
-      display: grid;
-      place-items: center;
-      overflow-x: hidden;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 12% 12%, #ffd0f1 0%, transparent 38%),
-        radial-gradient(ellipse at 90% 88%, #ffbce9 0%, transparent 40%),
-        linear-gradient(145deg, #fff0fb, #ffdff4 50%, #fce8ff);
-      font-family: "Pixelify Sans", monospace;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image:
-        radial-gradient(#ff21b6 1px, transparent 1px),
-        radial-gradient(#ff3f71 1px, transparent 1px);
-      background-size: 37px 37px, 61px 61px;
-      background-position: 0 0, 18px 23px;
-      opacity: .13;
-      animation: drift 24s linear infinite;
-    }
-
-    @keyframes drift {
-      to {
-        background-position: 180px 180px, -100px 120px;
-      }
-    }
-
-    @keyframes card-appear {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .profile-card {
-      width: min(100%, 510px);
-      overflow: hidden;
-      border: 2px solid #ff9cdb;
-      border-radius: 22px;
-      background: rgba(255, 250, 255, .96);
-      box-shadow: 5px 6px 0 #f7b7e1;
-      animation: card-appear .5s ease both;
-    }
-
-    .cover {
-      height: 91px;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 30%, #fff 0 2px, transparent 3px),
-        radial-gradient(circle at 80% 70%, #fff 0 3px, transparent 4px),
-        linear-gradient(115deg, #ffc8ec, #ff91d7 48%, #ff6b9d);
-      background-size: 39px 39px, 57px 57px, auto;
-    }
-
-    .cover::before {
-      content: "♡  ✦  ♡  ✧  ♡  ✦";
-      position: absolute;
-      right: 13px;
-      bottom: 12px;
-      color: rgba(255, 255, 255, .9);
-      font-family: "Silkscreen", monospace;
-      font-size: 11px;
-      letter-spacing: 4px;
-    }
-
-    .profile-content {
-      padding: 0 21px 20px;
-    }
-
-    .profile-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-top: -35px;
-      position: relative;
-    }
-
-    .avatar {
-      flex: 0 0 76px;
-      width: 76px;
-      height: 76px;
-      display: block;
-      object-fit: cover;
-      border: 4px solid #fffaff;
-      border-radius: 19px;
-      background: #ffd9f2;
-      box-shadow: 0 0 0 2px #ff91d7;
-      image-rendering: pixelated;
-    }
-
-    .profile-info {
-      min-width: 0;
-      padding-top: 39px;
-    }
-
-    .profile-name {
-      margin: 0;
-      color: #ff21a9;
-      font-family: "Silkscreen", monospace;
-      font-size: 1.15rem;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-
-    .profile-handle {
-      margin-top: 4px;
-      color: #bd5b9c;
-      font-size: .8rem;
-    }
-
-    .bio {
-      margin: 13px 0 0;
-      color: #87365f;
-      font-size: .9rem;
-      line-height: 1.65;
-    }
-
-    .bio-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      padding: 6px 10px;
-      border: 2px solid #ff91d7;
-      border-radius: 10px;
-      background: #ffe6f7;
-      color: #e90091;
-      font-family: "Silkscreen", monospace;
-      font-size: .65rem;
-    }
-
-    .bio-tag::before {
-      content: "✦";
-      color: #ff3f71;
-    }
-
-    .profile-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .profile-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 7px 11px;
-      border: 2px solid #ffb0e3;
-      border-radius: 10px;
-      color: #c82b91;
-      background: #fff5fc;
-      font-size: .78rem;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-
-    .profile-link:hover {
-      transform: translateY(-2px);
-      background: #ffe1f5;
-    }
-
-    .badge-area {
-      margin-top: 22px;
-      padding-top: 16px;
-      border: none;
-      background: transparent;
-    }
-
-    .badge-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 13px;
-      border-bottom: 2px dashed #ffd0ed;
-    }
-
-    .badge-title {
-      margin: 0;
-      color: #d40091;
-      font-family: "Silkscreen", monospace;
-      font-size: .8rem;
-      line-height: 1.6;
-    }
-
-    .badge-count {
-      color: #d26aa9;
-      font-size: .75rem;
-    }
-
-    .badge-list {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 0;
-      min-height: 0;
-      max-width: 100%;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      background: transparent;
-      text-decoration: none;
-      transition: transform .2s;
-    }
-
-    .badge:hover {
-      transform: translateY(-2px);
-      border: none;
-      background: transparent;
-    }
-
-    .badge img {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      background: transparent;
-    }
-
-    .badge-status {
-      margin: 12px 0 0;
-      color: #c07aa3;
-      font-size: .72rem;
-      line-height: 1.5;
-    }
-
-    .badge-status a {
-      color: #d92b9a;
-      text-decoration: none;
-    }
-
-    .playing-area {
-      margin-top: 22px;
-      padding-top: 16px;
-      border: none;
-      background: transparent;
-    }
-
-    .playing-card {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      padding: 13px;
-      border: 2px dashed #ffb0e3;
-      border-radius: 13px;
-      background: rgba(255, 230, 247, .48);
-    }
-
-    .playing-icon {
-      flex: 0 0 48px;
-      width: 48px;
-      height: 48px;
-      display: block;
-      object-fit: cover;
-      image-rendering: pixelated;
-      border: 2px solid #ff91d7;
-      border-radius: 8px;
-      background: #ffe6f7;
-    }
-
-    .playing-details {
-      min-width: 0;
-      flex: 1;
-    }
-
-    .playing-name {
-      margin: 0;
-      color: #d40091;
-      font-family: "Silkscreen", monospace;
-      font-size: .7rem;
-      line-height: 1.7;
-      overflow-wrap: anywhere;
-    }
-
-    .playing-meta {
-      margin: 4px 0 0;
-      color: #bd5b9c;
-      font-size: .78rem;
-      line-height: 1.5;
-    }
-
-    .playing-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 9px;
-      padding: 5px 8px;
-      border: 1px solid #ff91d7;
-      border-radius: 7px;
-      background: #fff5fc;
-      color: #c82b91;
-      font-size: .72rem;
-      line-height: 1.5;
-    }
-
-    .playing-status::before {
-      content: "✦";
-      color: #ff21b6;
-    }
-
-    .playing-link {
-      display: inline-block;
-      margin-top: 9px;
-      color: #d92b9a;
-      font-size: .78rem;
-      text-decoration: none;
-    }
-
-    .playing-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Pixel avatar and crypto nuclear trading tags */
-
-    .maple-showcase {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .maple-avatar-link {
-      flex: 0 0 112px;
-      width: 112px;
-      height: 112px;
-      display: block;
-    }
-
-    .maple-avatar {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      image-rendering: pixelated;
-    }
-
-    .nuclear-tags {
-      min-width: 0;
-      flex: 1;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: center;
-      gap: 8px;
-    }
-
-    .nuclear-tag {
-      display: inline-block;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      background: transparent;
-      color: #d40091;
-      font-family: "Silkscreen", monospace;
-      font-size: .65rem;
-      line-height: 1.8;
-      overflow-wrap: anywhere;
-    }
-
-    .nuclear-tag::before {
-      content: "#";
-      color: #ff21b6;
-    }
-
-    .nuclear-caption {
-      flex-basis: 100%;
-      margin: 0;
-      color: #bd5b9c;
-      font-size: .75rem;
-      line-height: 1.5;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 18px;
-      padding-top: 13px;
-      border-top: 2px dashed #ffd0ed;
-      color: #c780ad;
-      font-family: "Silkscreen", monospace;
-      font-size: .55rem;
-      line-height: 1.8;
-    }
-
-    .footer-symbol {
-      color: #ff21b6;
-      letter-spacing: 3px;
-    }
-
-    @media (max-width: 380px) {
-      body {
-        padding: 16px 10px;
-      }
-
-      .profile-content {
-        padding-inline: 15px;
-      }
-
-      .profile-header {
-        gap: 11px;
-      }
-
-      .avatar {
-        flex-basis: 66px;
-        width: 66px;
-        height: 66px;
-        border-radius: 16px;
-      }
-
-      .profile-name {
-        font-size: .95rem;
-      }
-
-      .profile-info {
-        padding-top: 39px;
-      }
-
-      .badge img {
-        max-height: 34px;
-      }
-
-      .playing-card {
-        gap: 10px;
-        padding: 10px;
-      }
-
-      .maple-showcase {
-        gap: 11px;
-      }
-
-      .maple-avatar-link {
-        flex-basis: 88px;
-        width: 88px;
-        height: 88px;
-      }
-
-      .nuclear-tag {
-        font-size: .55rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffc8ec">
+<title>axayacatl ♡ eth passport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff8bd5;--neon-pink:#ff21b6;--text:#70234f}
+*{box-sizing:border-box}
+body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center;overflow-x:hidden;color:var(--text);background:radial-gradient(ellipse at 12% 12%,#ffd0f1 0%,transparent 38%),radial-gradient(ellipse at 90% 88%,#ffbce9 0%,transparent 40%),linear-gradient(145deg,#fff0fb,#ffdff4 50%,#fce8ff);font-family:"Pixelify Sans",monospace}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(#ff21b6 1px,transparent 1px),radial-gradient(#ff3f71 1px,transparent 1px);background-size:37px 37px,61px 61px;background-position:0 0,18px 23px;opacity:.13;animation:drift 24s linear infinite}
+@keyframes drift{to{background-position:180px 180px,-100px 120px}}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.profile-card{width:min(100%,510px);overflow:hidden;border:2px solid #ff9cdb;border-radius:22px;background:rgba(255,250,255,.96);box-shadow:5px 6px 0 #f7b7e1;animation:appear .5s ease both}
+.cover{height:91px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 30%,#fff 0 2px,transparent 3px),radial-gradient(circle at 80% 70%,#fff 0 3px,transparent 4px),linear-gradient(115deg,#ffc8ec,#ff91d7 48%,#ff6b9d);background-size:39px 39px,57px 57px,auto}
+.cover::before{content:"♡  ✦  ♡  ✧  ♡  ✦";position:absolute;right:13px;bottom:12px;color:rgba(255,255,255,.9);font-family:"Silkscreen",monospace;font-size:11px;letter-spacing:4px}
+.profile-content{padding:0 21px 20px}
+.profile-header{display:flex;align-items:flex-start;gap:14px;margin-top:-35px;position:relative}
+.avatar{flex:0 0 76px;width:76px;height:76px;display:block;object-fit:cover;border:4px solid #fffaff;border-radius:19px;background:#ffd9f2;box-shadow:0 0 0 2px #ff91d7;image-rendering:pixelated}
+.profile-info{min-width:0;padding-top:39px}
+.profile-name{margin:0;color:#ff21a9;font-family:"Silkscreen",monospace;font-size:1.15rem;line-height:1.5;overflow-wrap:anywhere}
+.profile-handle{margin-top:4px;color:#bd5b9c;font-size:.8rem}
+.bio{margin:13px 0 0;color:#87365f;font-size:.9rem;line-height:1.65}
+.bio-tag{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:6px 10px;border:2px solid #ff91d7;border-radius:10px;background:#ffe6f7;color:#e90091;font-family:"Silkscreen",monospace;font-size:.65rem}
+.bio-tag::before{content:"✦";color:#ff3f71}
+.profile-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.profile-link{display:inline-flex;align-items:center;gap:5px;padding:7px 11px;border:2px solid #ffb0e3;border-radius:10px;color:#c82b91;background:#fff5fc;font-size:.78rem;text-decoration:none;transition:background .2s,transform .2s}
+.profile-link:hover{transform:translateY(-2px);background:#ffe1f5}
+.badge-area,.playing-area,.network-area{margin-top:22px;padding-top:16px;border:none;background:transparent}
+.badge-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px;border-bottom:2px dashed #ffd0ed}
+.badge-title{margin:0;color:#d40091;font-family:"Silkscreen",monospace;font-size:.8rem;line-height:1.6}
+.badge-count{color:#d26aa9;font-size:.75rem}
+.badge-list{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:transparent}
+.badge{display:inline-flex;align-items:center;justify-content:center;max-width:100%;padding:0;border:none;background:transparent;text-decoration:none;transition:transform .2s}
+.badge:hover{transform:translateY(-2px)}
+.badge img{display:block;width:auto;max-width:100%;object-fit:contain;background:transparent}
+.badge-status{margin:12px 0 0;color:#c07aa3;font-size:.72rem;line-height:1.5}
+.badge-status a,.playing-link,.network-explorer{color:#d92b9a;text-decoration:none}
+.playing-card{display:flex;align-items:center;gap:13px;padding:13px;border:2px dashed #ffb0e3;border-radius:13px;background:rgba(255,230,247,.48)}
+.playing-icon{flex:0 0 48px;width:48px;height:48px;display:block;object-fit:cover;image-rendering:pixelated;border:2px solid #ff91d7;border-radius:8px;background:#ffe6f7}
+.playing-details{min-width:0;flex:1}
+.playing-name{margin:0;color:#d40091;font-family:"Silkscreen",monospace;font-size:.7rem;line-height:1.7;overflow-wrap:anywhere}
+.playing-meta{margin:4px 0 0;color:#bd5b9c;font-size:.78rem;line-height:1.5}
+.playing-status{display:inline-flex;align-items:center;gap:6px;margin-top:9px;padding:5px 8px;border:1px solid #ff91d7;border-radius:7px;background:#fff5fc;color:#c82b91;font-size:.72rem;line-height:1.5}
+.playing-status::before{content:"✦";color:#ff21b6}
+.playing-link{display:inline-block;margin-top:9px;font-size:.78rem}
+.playing-link:hover,.network-explorer:hover,.badge-status a:hover{text-decoration:underline}
+
+/* Compact Ethereum and Solana live network widgets */
+.network-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.network-card{min-width:0;padding:9px;border:2px solid #ffb0e3;border-radius:10px;background:rgba(255,245,252,.88)}
+.network-card-top{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap}
+.network-symbol{display:grid;flex:0 0 25px;width:25px;height:25px;place-items:center;border-radius:7px;background:#ffe1f5;color:#d40091;font-family:Arial,sans-serif;font-size:1rem;font-weight:700}
+.sol-symbol{color:#8736bc}
+.network-card-heading{min-width:0;flex:1}
+.network-card-heading h3{margin:0;color:#d40091;font-family:"Silkscreen",monospace;font-size:.57rem;line-height:1.5}
+.network-card-heading p{margin:2px 0 0;color:#bd5b9c;font-size:.5rem;line-height:1.35;overflow-wrap:anywhere}
+.network-indicator{display:inline-flex;align-items:center;gap:4px;flex:0 0 auto;padding:3px 4px;border-radius:5px;background:#fff;color:#a36b8c;font-family:"Silkscreen",monospace;font-size:.43rem}
+.network-indicator::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
+.network-indicator.online{color:#16834b}
+.network-indicator.offline{color:#c52d5a}
+.network-indicator.checking{color:#a36b8c}
+.network-metric{display:flex;flex-direction:column;gap:3px;margin-top:8px;padding-top:6px;border-top:1px dashed #ffd0ed}
+.network-metric span{color:#bd5b9c;font-size:.59rem}
+.network-metric strong{color:#70234f;font-family:"Silkscreen",monospace;font-size:.62rem;overflow-wrap:anywhere}
+.network-explorer{display:inline-block;margin-top:7px;font-family:"Silkscreen",monospace;font-size:.48rem;line-height:1.6}
+.network-widget-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;color:#bd5b9c;font-size:.62rem;line-height:1.4}
+.network-refresh{flex:0 0 auto;padding:5px 7px;border:1px solid #ffb0e3;border-radius:7px;background:#fff5fc;color:#c82b91;font-family:"Silkscreen",monospace;font-size:.48rem;cursor:pointer}
+.network-refresh:hover{background:#ffe1f5}
+.network-refresh:disabled{opacity:.6;cursor:wait}
+.network-caption{margin:7px 0 0;color:#bd5b9c;font-size:.65rem;line-height:1.4}
+.maple-showcase{display:flex;align-items:center;gap:16px;margin-top:24px}
+.maple-avatar-link{flex:0 0 112px;width:112px;height:112px;display:block}
+.maple-avatar{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.nuclear-tags{min-width:0;flex:1;display:flex;flex-wrap:wrap;align-content:center;gap:8px}
+.nuclear-tag{display:inline-block;padding:0;border:none;background:transparent;color:#d40091;font-family:"Silkscreen",monospace;font-size:.65rem;line-height:1.8;overflow-wrap:anywhere}
+.nuclear-tag::before{content:"#";color:#ff21b6}
+.nuclear-caption{flex-basis:100%;margin:0;color:#bd5b9c;font-size:.75rem;line-height:1.5}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:13px;border-top:2px dashed #ffd0ed;color:#c780ad;font-family:"Silkscreen",monospace;font-size:.55rem;line-height:1.8}
+.footer-symbol{color:#ff21b6;letter-spacing:3px}
+@media(max-width:380px){body{padding:16px 10px}.profile-content{padding-inline:15px}.profile-header{gap:11px}.avatar{flex-basis:66px;width:66px;height:66px;border-radius:16px}.profile-name{font-size:.95rem}.profile-info{padding-top:39px}.badge img{max-height:34px}.playing-card{gap:10px;padding:10px}.maple-showcase{gap:11px}.maple-avatar-link{flex-basis:88px;width:88px;height:88px}.nuclear-tag{font-size:.55rem}}
+@media(max-width:340px){.network-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
 </head>
-
 <body>
-  <main class="profile-card">
-    <div class="cover" aria-hidden="true"></div>
+<main class="profile-card">
+  <div class="cover" aria-hidden="true"></div>
+  <div class="profile-content">
+    <header class="profile-header">
+      <img class="avatar" src="https://axayacatl.neocities.org/images/droplet.png" alt="axayacatl's profile icon">
+      <div class="profile-info">
+        <h1 class="profile-name">axayacatl</h1>
+        <div class="profile-handle">@axayacatl</div>
+      </div>
+    </header>
 
-    <div class="profile-content">
-      <header class="profile-header">
-        <img
-          class="avatar"
-          src="https://axayacatl.neocities.org/images/droplet.png"
-          alt="axayacatl's profile icon"
-        >
+    <p class="bio">software engineering · computational systems.<br>an online personality exploring technology, religious sciences, and digital realms.</p>
+    <div class="bio-tag">demonologist</div>
 
-        <div class="profile-info">
-          <h1 class="profile-name">axayacatl</h1>
-          <div class="profile-handle">@axayacatl</div>
-        </div>
-      </header>
+    <nav class="profile-links" aria-label="profile links">
+      <a class="profile-link" href="https://github.com/axaxayacatl" target="_blank" rel="noopener noreferrer">⌘ github ↗</a>
+      <a class="profile-link" href="https://axayacatl.neocities.org/" target="_blank" rel="noopener noreferrer">♡ website ↗</a>
+    </nav>
 
-      <p class="bio">
-        software engineering · computational systems.<br>
-        an online personality exploring technology, religious sciences, and digital realms.
-      </p>
-
-      <div class="bio-tag">demonologist</div>
-
-      <nav class="profile-links" aria-label="profile links">
-        <a
-          class="profile-link"
-          href="https://github.com/axaxayacatl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >⌘ github ↗</a>
-
-        <a
-          class="profile-link"
-          href="https://axayacatl.neocities.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >♡ website ↗</a>
-      </nav>
-
-      <section class="badge-area" aria-labelledby="badge-title">
-        <div class="badge-heading">
-          <h2 class="badge-title" id="badge-title">♡ badges</h2>
-          <span class="badge-count">02 badges</span>
-        </div>
-
-        <div class="badge-list">
-          <a
-            class="badge"
-            href="https://ethskills.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="ETH Skills"
-          >
-            <img
-              src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethskills.png"
-              alt="ETH Skills badge"
-              loading="lazy"
-            >
-          </a>
-
-          <a
-            class="badge"
-            href="https://ethereum-magicians.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Ethereum Magicians"
-          >
-            <img
-              src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethmagicians.png"
-              alt="Ethereum Magicians badge"
-              loading="lazy"
-            >
-          </a>
-        </div>
-
-        <p class="badge-status">
-          <a
-            href="https://github.com/axaxayacatl/axaxayacatl/tree/main/custom_badge"
-            target="_blank"
-            rel="noopener noreferrer"
-          >badge archive ↗</a>
-        </p>
-      </section>
-
-      <section class="playing-area" aria-labelledby="playing-title">
-        <div class="badge-heading">
-          <h2 class="badge-title" id="playing-title">♡ currently playing</h2>
-          <span class="badge-count">01 game</span>
-        </div>
-
-        <div class="playing-card">
-          <img
-            class="playing-icon"
-            src="https://placehold.co/16x16/ff91d7/70234f.png?text=%E2%96%A0"
-            alt="Pixel game icon"
-            width="48"
-            height="48"
-          >
-
-          <div class="playing-details">
-            <h3 class="playing-name">DIGITAL HUMANS</h3>
-            <p class="playing-meta">SOULS.CLUB · GAME DISCOVERY</p>
-            <span class="playing-status">drop · date tba</span>
-            <span class="playing-status">playing · waiting for next drop</span>
-
-            <br>
-
-            <a
-              class="playing-link"
-              href="https://app.souls.club/humans"
-              target="_blank"
-              rel="noopener noreferrer"
-            >♡ open Digital Humans ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="maple-showcase" aria-label="Crypto nuclear trading identity">
-        <a
-          class="maple-avatar-link"
-          href="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/avatar/axayacatl-maplestory-avatar.png"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Open pixel avatar"
-        >
-          <img
-            class="maple-avatar"
-            src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/avatar/axayacatl-maplestory-avatar.png"
-            alt="Axayacatl's MapleStory-style pixel avatar"
-            loading="lazy"
-          >
+    <section class="badge-area" aria-labelledby="badge-title">
+      <div class="badge-heading">
+        <h2 class="badge-title" id="badge-title">♡ badges</h2>
+        <span class="badge-count">02 badges</span>
+      </div>
+      <div class="badge-list">
+        <a class="badge" href="https://ethskills.com/" target="_blank" rel="noopener noreferrer" title="ETH Skills">
+          <img src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethskills.png" alt="ETH Skills badge" loading="lazy">
         </a>
+        <a class="badge" href="https://ethereum-magicians.org/" target="_blank" rel="noopener noreferrer" title="Ethereum Magicians">
+          <img src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethmagicians.png" alt="Ethereum Magicians badge" loading="lazy">
+        </a>
+      </div>
+      <p class="badge-status"><a href="https://github.com/axaxayacatl/axaxayacatl/tree/main/custom_badge" target="_blank" rel="noopener noreferrer">badge archive ↗</a></p>
+    </section>
 
-        <div class="nuclear-tags">
-          <span class="nuclear-tag">NUCLEAR</span>
-          <span class="nuclear-tag">CRYPTO</span>
-          <span class="nuclear-tag">TRADING</span>
-          <span class="nuclear-tag">ETH</span>
-          <span class="nuclear-tag">WEB3</span>
-          <p class="nuclear-caption">digital identity · on-chain culture</p>
+    <section class="playing-area" aria-labelledby="playing-title">
+      <div class="badge-heading">
+        <h2 class="badge-title" id="playing-title">♡ currently playing</h2>
+        <span class="badge-count">01 game</span>
+      </div>
+      <div class="playing-card">
+        <img class="playing-icon" src="https://placehold.co/16x16/ff91d7/70234f.png?text=%E2%96%A0" alt="Pixel game icon" width="48" height="48">
+        <div class="playing-details">
+          <h3 class="playing-name">DIGITAL HUMANS</h3>
+          <p class="playing-meta">SOULS.CLUB · GAME DISCOVERY</p>
+          <span class="playing-status">drop · date tba</span>
+          <span class="playing-status">playing · waiting for next drop</span><br>
+          <a class="playing-link" href="https://app.souls.club/humans" target="_blank" rel="noopener noreferrer">♡ open Digital Humans ↗</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer class="card-footer">
-        <span>axayacatl · eth passport</span>
-        <span class="footer-symbol">♡ ✦ ♡</span>
-      </footer>
-    </div>
-  </main>
+    <section class="maple-showcase" aria-label="Crypto nuclear trading identity">
+      <a class="maple-avatar-link" href="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/avatar/axayacatl-maplestory-avatar.png" target="_blank" rel="noopener noreferrer" title="Open pixel avatar">
+        <img class="maple-avatar" src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/avatar/axayacatl-maplestory-avatar.png" alt="Axayacatl's MapleStory-style pixel avatar" loading="lazy">
+      </a>
+      <div class="nuclear-tags">
+        <span class="nuclear-tag">NUCLEAR</span>
+        <span class="nuclear-tag">CRYPTO</span>
+        <span class="nuclear-tag">TRADING</span>
+        <span class="nuclear-tag">ETH</span>
+        <span class="nuclear-tag">WEB3</span>
+        <p class="nuclear-caption">digital identity · on-chain culture</p>
+      </div>
+    </section>
+
+    <section class="network-area" aria-labelledby="network-title">
+      <div class="badge-heading">
+        <h2 class="badge-title" id="network-title">♡ network status</h2>
+        <span class="badge-count" id="network-updated">LIVE CHECK</span>
+      </div>
+
+      <div class="network-grid">
+        <article class="network-card" id="ethereum-card">
+          <div class="network-card-top">
+            <span class="network-symbol">Ξ</span>
+            <div class="network-card-heading">
+              <h3>Ethereum</h3>
+              <p>MAINNET · CHAIN ID 1</p>
+            </div>
+            <span class="network-indicator checking" id="ethereum-indicator">CHECKING</span>
+          </div>
+          <div class="network-metric">
+            <span>Latest block</span>
+            <strong id="ethereum-block">Connecting…</strong>
+          </div>
+          <div class="network-metric">
+            <span>RPC response</span>
+            <strong id="ethereum-latency">—</strong>
+          </div>
+          <a class="network-explorer" href="https://etherscan.io/" target="_blank" rel="noopener noreferrer">OPEN EXPLORER ↗</a>
+        </article>
+
+        <article class="network-card" id="solana-card">
+          <div class="network-card-top">
+            <span class="network-symbol sol-symbol">◎</span>
+            <div class="network-card-heading">
+              <h3>Solana</h3>
+              <p>MAINNET-BETA · SOL</p>
+            </div>
+            <span class="network-indicator checking" id="solana-indicator">CHECKING</span>
+          </div>
+          <div class="network-metric">
+            <span>Finalized slot</span>
+            <strong id="solana-slot">Connecting…</strong>
+          </div>
+          <div class="network-metric">
+            <span>RPC response</span>
+            <strong id="solana-latency">—</strong>
+          </div>
+          <a class="network-explorer" href="https://explorer.solana.com/" target="_blank" rel="noopener noreferrer">OPEN EXPLORER ↗</a>
+        </article>
+      </div>
+
+      <div class="network-widget-footer">
+        <span id="network-message" role="status" aria-live="polite">Querying public RPC endpoints…</span>
+        <button class="network-refresh" id="network-refresh" type="button">↻ REFRESH</button>
+      </div>
+      <p class="network-caption">public chain telemetry · not a wallet connection · auto-refreshes every 30 seconds</p>
+    </section>
+
+    <footer class="card-footer">
+      <span>axayacatl · eth passport</span>
+      <span class="footer-symbol">♡ ✦ ♡</span>
+    </footer>
+  </div>
+</main>
+
+<script>
+(() => {
+  const numberFormat = new Intl.NumberFormat();
+  let refreshInProgress = false;
+
+  function setStatus(network, state, label) {
+    const indicator = document.getElementById(`${network}-indicator`);
+    indicator.className = `network-indicator ${state}`;
+    indicator.textContent = label;
+  }
+
+  async function rpc(url, method, params = []) {
+    const started = performance.now();
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({jsonrpc:"2.0",id:1,method,params}),
+      cache: "no-store"
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const payload = await response.json();
+    if (payload.error) throw new Error(payload.error.message || "RPC error");
+    return {result:payload.result,latency:Math.round(performance.now()-started)};
+  }
+
+  async function refreshNetworks() {
+    if (refreshInProgress) return;
+    refreshInProgress = true;
+
+    const button = document.getElementById("network-refresh");
+    const message = document.getElementById("network-message");
+    button.disabled = true;
+    button.textContent = "↻ CHECKING";
+    message.textContent = "Checking public RPC endpoints…";
+
+    const tasks = [
+      (async () => {
+        try {
+          const data = await rpc("https://ethereum-rpc.publicnode.com","eth_blockNumber");
+          const block = Number.parseInt(data.result,16);
+          if (!Number.isFinite(block)) throw new Error("Invalid block response");
+          document.getElementById("ethereum-block").textContent = numberFormat.format(block);
+          document.getElementById("ethereum-latency").textContent = `${data.latency} ms`;
+          setStatus("ethereum","online","ONLINE");
+          return true;
+        } catch {
+          document.getElementById("ethereum-block").textContent = "Unavailable";
+          document.getElementById("ethereum-latency").textContent = "—";
+          setStatus("ethereum","offline","NO RESPONSE");
+          return false;
+        }
+      })(),
+      (async () => {
+        try {
+          const data = await rpc("https://api.mainnet-beta.solana.com","getSlot",[{commitment:"finalized"}]);
+          const slot = Number(data.result);
+          if (!Number.isFinite(slot)) throw new Error("Invalid slot response");
+          document.getElementById("solana-slot").textContent = numberFormat.format(slot);
+          document.getElementById("solana-latency").textContent = `${data.latency} ms`;
+          setStatus("solana","online","ONLINE");
+          return true;
+        } catch {
+          document.getElementById("solana-slot").textContent = "Unavailable";
+          document.getElementById("solana-latency").textContent = "—";
+          setStatus("solana","offline","NO RESPONSE");
+          return false;
+        }
+      })()
+    ];
+
+    try {
+      const results = await Promise.all(tasks);
+      const stamp = new Date().toLocaleTimeString([], {
+        hour:"2-digit",minute:"2-digit",second:"2-digit"
+      });
+      document.getElementById("network-updated").textContent = `UPDATED ${stamp}`;
+      message.textContent = results.every(Boolean)
+        ? "Both public RPC endpoints responded."
+        : results.some(Boolean)
+          ? "One endpoint responded; check the other connection."
+          : "Public RPC endpoints did not respond. Retry shortly.";
+    } finally {
+      button.disabled = false;
+      button.textContent = "↻ REFRESH";
+      refreshInProgress = false;
+    }
+  }
+
+  document.getElementById("network-refresh").addEventListener("click",refreshNetworks);
+  refreshNetworks();
+  window.setInterval(refreshNetworks,30000);
+})();
+</script>
 </body>
 </html>
+
 
