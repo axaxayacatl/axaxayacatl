@@ -41,6 +41,12 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .badge img{display:block;width:auto;max-width:100%;object-fit:contain;background:transparent}
 .badge-status{margin:12px 0 0;color:#c07aa3;font-size:.72rem;line-height:1.5}
 .badge-status a,.playing-link,.network-explorer{color:#d92b9a;text-decoration:none}
+
+/* Cryexc and Frame.sh pixel badges */
+.crypto-tool-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:68px;min-height:66px;padding:7px;border:2px solid #ffb0e3;border-radius:10px;background:#fff5fc;color:#d40091;font-family:"Silkscreen",monospace;font-size:8px;text-decoration:none;transition:background .2s,transform .2s}
+.crypto-tool-badge img{display:block;width:32px;height:32px;object-fit:contain;image-rendering:pixelated;background:transparent}
+.crypto-tool-badge span{line-height:1.5;text-align:center}
+.crypto-tool-badge:hover{transform:translateY(-2px);background:#ffe1f5}
 .playing-card{display:flex;align-items:center;gap:13px;padding:13px;border:2px dashed #ffb0e3;border-radius:13px;background:rgba(255,230,247,.48)}
 .playing-icon{flex:0 0 48px;width:48px;height:48px;display:block;object-fit:cover;image-rendering:pixelated;border:2px solid #ff91d7;border-radius:8px;background:#ffe6f7}
 .playing-details{min-width:0;flex:1}
@@ -50,8 +56,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .playing-status::before{content:"✦";color:#ff21b6}
 .playing-link{display:inline-block;margin-top:9px;font-size:.78rem}
 .playing-link:hover,.network-explorer:hover,.badge-status a:hover{text-decoration:underline}
-
-/* Compact Ethereum and Solana live network widgets */
 .network-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .network-card{min-width:0;padding:9px;border:2px solid #ffb0e3;border-radius:10px;background:rgba(255,245,252,.88)}
 .network-card-top{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap}
@@ -111,16 +115,29 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <section class="badge-area" aria-labelledby="badge-title">
       <div class="badge-heading">
         <h2 class="badge-title" id="badge-title">♡ badges</h2>
-        <span class="badge-count">02 badges</span>
+        <span class="badge-count">04 badges</span>
       </div>
+
       <div class="badge-list">
+        <a class="badge crypto-tool-badge" href="https://cryexc.josedonato.com/" target="_blank" rel="noopener noreferrer" title="Cryexc">
+          <img src="https://www.google.com/s2/favicons?domain=cryexc.josedonato.com&sz=128" alt="Cryexc logo" loading="lazy">
+          <span>CRYEXC</span>
+        </a>
+
+        <a class="badge crypto-tool-badge" href="https://frame.sh/" target="_blank" rel="noopener noreferrer" title="Frame.sh">
+          <img src="https://www.google.com/s2/favicons?domain=frame.sh&sz=128" alt="Frame.sh logo" loading="lazy">
+          <span>FRAME.SH</span>
+        </a>
+
         <a class="badge" href="https://ethskills.com/" target="_blank" rel="noopener noreferrer" title="ETH Skills">
           <img src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethskills.png" alt="ETH Skills badge" loading="lazy">
         </a>
+
         <a class="badge" href="https://ethereum-magicians.org/" target="_blank" rel="noopener noreferrer" title="Ethereum Magicians">
           <img src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethmagicians.png" alt="Ethereum Magicians badge" loading="lazy">
         </a>
       </div>
+
       <p class="badge-status"><a href="https://github.com/axaxayacatl/axaxayacatl/tree/main/custom_badge" target="_blank" rel="noopener noreferrer">badge archive ↗</a></p>
     </section>
 
