@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +15,7 @@ body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(#ff21b6 1px,transparent 1px),radial-gradient(#ff3f71 1px,transparent 1px);background-size:37px 37px,61px 61px;background-position:0 0,18px 23px;opacity:.13;animation:drift 24s linear infinite}
 @keyframes drift{to{background-position:180px 180px,-100px 120px}}
 @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sigil-pulse{0%,100%{text-shadow:0 0 3px #ff8bd5;opacity:.9}50%{text-shadow:0 0 9px #ff21b6,0 0 14px #ffbce9;opacity:1}}
 .profile-card{width:min(100%,510px);overflow:hidden;border:2px solid #ff9cdb;border-radius:22px;background:rgba(255,250,255,.96);box-shadow:5px 6px 0 #f7b7e1;animation:appear .5s ease both}
 .cover{height:91px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 30%,#fff 0 2px,transparent 3px),radial-gradient(circle at 80% 70%,#fff 0 3px,transparent 4px),linear-gradient(115deg,#ffc8ec,#ff91d7 48%,#ff6b9d);background-size:39px 39px,57px 57px,auto}
 .cover::before{content:"♡  ✦  ♡  ✧  ♡  ✦";position:absolute;right:13px;bottom:12px;color:rgba(255,255,255,.9);font-family:"Silkscreen",monospace;font-size:11px;letter-spacing:4px}
@@ -47,6 +47,15 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .crypto-tool-badge img{display:block;width:32px;height:32px;object-fit:contain;image-rendering:pixelated;background:transparent}
 .crypto-tool-badge span{line-height:1.5;text-align:center}
 .crypto-tool-badge:hover{transform:translateY(-2px);background:#ffe1f5}
+
+/* Cryptographic provenance award: distinct editorial occult sigil */
+.provenance-badge{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:6px;max-width:100%;min-height:42px;padding:5px 8px;overflow:hidden;border:1px solid #d79bbd;border-radius:2px 11px 2px 11px;background:repeating-linear-gradient(135deg,rgba(255,183,226,.14) 0,rgba(255,183,226,.14) 3px,transparent 3px,transparent 6px),#fff7fd;color:#84345f;text-decoration:none;box-shadow:inset 0 0 0 2px #fff7fd,inset 0 0 0 3px #f2c4df;transition:transform .2s,background .2s,box-shadow .2s}
+.provenance-badge::after{content:"";position:absolute;z-index:-1;width:30px;height:30px;right:-7px;bottom:-12px;border:1px solid #e9b6d5;border-radius:50%;opacity:.7}
+.provenance-badge:hover{transform:translateY(-2px) rotate(-1deg);background-color:#ffe6f5;box-shadow:inset 0 0 0 2px #fff7fd,inset 0 0 0 3px #e5a2ce,2px 3px 0 #f2c4df}
+.provenance-sigil{display:inline-grid;flex:0 0 24px;width:24px;height:24px;place-items:center;border:1px solid #d79bbd;border-radius:50%;background:#ffe6f5;color:#c02c86;font-size:16px;line-height:1;animation:sigil-pulse 3.5s ease-in-out infinite}
+.provenance-kaomoji{color:#bd5b9c;font-size:.68rem;white-space:nowrap}
+.provenance-label{min-width:0;color:#84345f;font-family:"Silkscreen",monospace;font-size:.47rem;line-height:1.6;overflow-wrap:anywhere}
+.provenance-mark{flex:0 0 auto;color:#d40091;font-size:.9rem}
 .playing-card{display:flex;align-items:center;gap:13px;padding:13px;border:2px dashed #ffb0e3;border-radius:13px;background:rgba(255,230,247,.48)}
 .playing-icon{flex:0 0 48px;width:48px;height:48px;display:block;object-fit:cover;image-rendering:pixelated;border:2px solid #ff91d7;border-radius:8px;background:#ffe6f7}
 .playing-details{min-width:0;flex:1}
@@ -87,8 +96,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .nuclear-caption{flex-basis:100%;margin:0;color:#bd5b9c;font-size:.75rem;line-height:1.5}
 .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:13px;border-top:2px dashed #ffd0ed;color:#c780ad;font-family:"Silkscreen",monospace;font-size:.55rem;line-height:1.8}
 .footer-symbol{color:#ff21b6;letter-spacing:3px}
-@media(max-width:380px){body{padding:16px 10px}.profile-content{padding-inline:15px}.profile-header{gap:11px}.avatar{flex-basis:66px;width:66px;height:66px;border-radius:16px}.profile-name{font-size:.95rem}.profile-info{padding-top:39px}.badge img{max-height:34px}.playing-card{gap:10px;padding:10px}.maple-showcase{gap:11px}.maple-avatar-link{flex-basis:88px;width:88px;height:88px}.nuclear-tag{font-size:.55rem}}
-@media(max-width:340px){.network-grid{grid-template-columns:1fr}}
+@media(max-width:380px){body{padding:16px 10px}.profile-content{padding-inline:15px}.profile-header{gap:11px}.avatar{flex-basis:66px;width:66px;height:66px;border-radius:16px}.profile-name{font-size:.95rem}.profile-info{padding-top:39px}.badge img{max-height:34px}.playing-card{gap:10px;padding:10px}.maple-showcase{gap:11px}.maple-avatar-link{flex-basis:88px;width:88px;height:88px}.nuclear-tag{font-size:.55rem}.provenance-badge{gap:5px;padding:5px 6px}.provenance-kaomoji{font-size:.61rem}.provenance-label{font-size:.42rem}}
+@media(max-width:340px){.network-grid{grid-template-columns:1fr}.provenance-kaomoji{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -115,7 +124,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <section class="badge-area" aria-labelledby="badge-title">
       <div class="badge-heading">
         <h2 class="badge-title" id="badge-title">♡ badges</h2>
-        <span class="badge-count">04 badges</span>
+        <span class="badge-count">05 badges</span>
       </div>
 
       <div class="badge-list">
@@ -135,6 +144,13 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 
         <a class="badge" href="https://ethereum-magicians.org/" target="_blank" rel="noopener noreferrer" title="Ethereum Magicians">
           <img src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/ethmagicians.png" alt="Ethereum Magicians badge" loading="lazy">
+        </a>
+
+        <a class="provenance-badge" href="https://github.com/axaxayacatl/provenance-machine" target="_blank" rel="noopener noreferrer" title="Cryptographic Provenance Builder" aria-label="Cryptographic Provenance Builder award">
+          <span class="provenance-sigil" aria-hidden="true">☾</span>
+          <span class="provenance-kaomoji" aria-hidden="true">(｡•̀ᴗ-)✧</span>
+          <span class="provenance-label">PROVENANCE<br>BUILDER</span>
+          <span class="provenance-mark" aria-hidden="true">𖤐</span>
         </a>
       </div>
 
