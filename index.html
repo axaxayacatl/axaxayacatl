@@ -356,6 +356,65 @@
       text-decoration: underline;
     }
 
+    /* Pixel avatar and crypto nuclear trading tags */
+
+    .maple-showcase {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .maple-avatar-link {
+      flex: 0 0 112px;
+      width: 112px;
+      height: 112px;
+      display: block;
+    }
+
+    .maple-avatar {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .nuclear-tags {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      gap: 8px;
+    }
+
+    .nuclear-tag {
+      display: inline-block;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: #d40091;
+      font-family: "Silkscreen", monospace;
+      font-size: .65rem;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .nuclear-tag::before {
+      content: "#";
+      color: #ff21b6;
+    }
+
+    .nuclear-caption {
+      flex-basis: 100%;
+      margin: 0;
+      color: #bd5b9c;
+      font-size: .75rem;
+      line-height: 1.5;
+    }
+
     .card-footer {
       display: flex;
       align-items: center;
@@ -410,6 +469,20 @@
       .playing-card {
         gap: 10px;
         padding: 10px;
+      }
+
+      .maple-showcase {
+        gap: 11px;
+      }
+
+      .maple-avatar-link {
+        flex-basis: 88px;
+        width: 88px;
+        height: 88px;
+      }
+
+      .nuclear-tag {
+        font-size: .55rem;
       }
     }
 
@@ -541,6 +614,32 @@
               rel="noopener noreferrer"
             >♡ open Digital Humans ↗</a>
           </div>
+        </div>
+      </section>
+
+      <section class="maple-showcase" aria-label="Crypto nuclear trading identity">
+        <a
+          class="maple-avatar-link"
+          href="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/avatar/axayacatl-maplestory-avatar.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Open pixel avatar"
+        >
+          <img
+            class="maple-avatar"
+            src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/avatar/axayacatl-maplestory-avatar.png"
+            alt="Axayacatl's MapleStory-style pixel avatar"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="nuclear-tags">
+          <span class="nuclear-tag">NUCLEAR</span>
+          <span class="nuclear-tag">CRYPTO</span>
+          <span class="nuclear-tag">TRADING</span>
+          <span class="nuclear-tag">ETH</span>
+          <span class="nuclear-tag">WEB3</span>
+          <p class="nuclear-caption">digital identity · on-chain culture</p>
         </div>
       </section>
 
