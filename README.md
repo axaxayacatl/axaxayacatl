@@ -24,4 +24,4 @@ the cemetery wifi is surprisingly stable ♡
 javascript-application-logic / event-driven-programming / json-data-processing / dom-manipulation / browser-apis / client-side-file-handling / node.js-cli-tooling / filesystem-operations / input-validation / configuration-analysis / automated-reporting / bug-investigation / regression-testing / open-source-maintenance / wallet-integration / cryptographic-verification
 
 [![onchain foodie ♡](https://img.shields.io/badge/onchain-foodie%20%E2%99%A1-ff00aa?style=flat-square)](https://based.cooking/)
-[![candy alchemist](https://img.shields.io/badge/candy-alchemist-ff00aa?style=flat-square)](https://github.com/amirulshafiq98/mochi_icecream)
+[![candy alchemist](https://img.shields.io/badge/candy-alchemist-00FF99?style=flat-square)](https://github.com/amirulshafiq98/mochi_icecream)
