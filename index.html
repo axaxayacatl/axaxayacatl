@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{--pink:#ff8bd5;--neon-pink:#ff21b6;--text:#70234f}
 *{box-sizing:border-box}
@@ -16,6 +18,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @keyframes drift{to{background-position:180px 180px,-100px 120px}}
 @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes sigil-pulse{0%,100%{text-shadow:0 0 3px #ff8bd5;opacity:.9}50%{text-shadow:0 0 9px #ff21b6,0 0 14px #ffbce9;opacity:1}}
+
 .profile-card{width:min(100%,510px);overflow:hidden;border:2px solid #ff9cdb;border-radius:22px;background:rgba(255,250,255,.96);box-shadow:5px 6px 0 #f7b7e1;animation:appear .5s ease both}
 .cover{height:91px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 30%,#fff 0 2px,transparent 3px),radial-gradient(circle at 80% 70%,#fff 0 3px,transparent 4px),linear-gradient(115deg,#ffc8ec,#ff91d7 48%,#ff6b9d);background-size:39px 39px,57px 57px,auto}
 .cover::before{content:"♡  ✦  ♡  ✧  ♡  ✦";position:absolute;right:13px;bottom:12px;color:rgba(255,255,255,.9);font-family:"Silkscreen",monospace;font-size:11px;letter-spacing:4px}
@@ -31,6 +34,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .profile-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 .profile-link{display:inline-flex;align-items:center;gap:5px;padding:7px 11px;border:2px solid #ffb0e3;border-radius:10px;color:#c82b91;background:#fff5fc;font-size:.78rem;text-decoration:none;transition:background .2s,transform .2s}
 .profile-link:hover{transform:translateY(-2px);background:#ffe1f5}
+
 .badge-area,.playing-area,.network-area{margin-top:22px;padding-top:16px;border:none;background:transparent}
 .badge-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px;border-bottom:2px dashed #ffd0ed}
 .badge-title{margin:0;color:#d40091;font-family:"Silkscreen",monospace;font-size:.8rem;line-height:1.6}
@@ -42,13 +46,13 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .badge-status{margin:12px 0 0;color:#c07aa3;font-size:.72rem;line-height:1.5}
 .badge-status a,.playing-link,.network-explorer{color:#d92b9a;text-decoration:none}
 
-/* Cryexc and Frame.sh pixel badges */
+/* Crypto infrastructure pixel badges */
 .crypto-tool-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:68px;min-height:66px;padding:7px;border:2px solid #ffb0e3;border-radius:10px;background:#fff5fc;color:#d40091;font-family:"Silkscreen",monospace;font-size:8px;text-decoration:none;transition:background .2s,transform .2s}
 .crypto-tool-badge img{display:block;width:32px;height:32px;object-fit:contain;image-rendering:pixelated;background:transparent}
 .crypto-tool-badge span{line-height:1.5;text-align:center}
 .crypto-tool-badge:hover{transform:translateY(-2px);background:#ffe1f5}
 
-/* Cryptographic provenance award: distinct editorial occult sigil */
+/* Cryptographic provenance award */
 .provenance-badge{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:6px;max-width:100%;min-height:42px;padding:5px 8px;overflow:hidden;border:1px solid #d79bbd;border-radius:2px 11px 2px 11px;background:repeating-linear-gradient(135deg,rgba(255,183,226,.14) 0,rgba(255,183,226,.14) 3px,transparent 3px,transparent 6px),#fff7fd;color:#84345f;text-decoration:none;box-shadow:inset 0 0 0 2px #fff7fd,inset 0 0 0 3px #f2c4df;transition:transform .2s,background .2s,box-shadow .2s}
 .provenance-badge::after{content:"";position:absolute;z-index:-1;width:30px;height:30px;right:-7px;bottom:-12px;border:1px solid #e9b6d5;border-radius:50%;opacity:.7}
 .provenance-badge:hover{transform:translateY(-2px) rotate(-1deg);background-color:#ffe6f5;box-shadow:inset 0 0 0 2px #fff7fd,inset 0 0 0 3px #e5a2ce,2px 3px 0 #f2c4df}
@@ -56,6 +60,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .provenance-kaomoji{color:#bd5b9c;font-size:.68rem;white-space:nowrap}
 .provenance-label{min-width:0;color:#84345f;font-family:"Silkscreen",monospace;font-size:.47rem;line-height:1.6;overflow-wrap:anywhere}
 .provenance-mark{flex:0 0 auto;color:#d40091;font-size:.9rem}
+
 .playing-card{display:flex;align-items:center;gap:13px;padding:13px;border:2px dashed #ffb0e3;border-radius:13px;background:rgba(255,230,247,.48)}
 .playing-icon{flex:0 0 48px;width:48px;height:48px;display:block;object-fit:cover;image-rendering:pixelated;border:2px solid #ff91d7;border-radius:8px;background:#ffe6f7}
 .playing-details{min-width:0;flex:1}
@@ -65,11 +70,14 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .playing-status::before{content:"✦";color:#ff21b6}
 .playing-link{display:inline-block;margin-top:9px;font-size:.78rem}
 .playing-link:hover,.network-explorer:hover,.badge-status a:hover{text-decoration:underline}
+
+/* Network telemetry */
 .network-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .network-card{min-width:0;padding:9px;border:2px solid #ffb0e3;border-radius:10px;background:rgba(255,245,252,.88)}
 .network-card-top{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap}
 .network-symbol{display:grid;flex:0 0 25px;width:25px;height:25px;place-items:center;border-radius:7px;background:#ffe1f5;color:#d40091;font-family:Arial,sans-serif;font-size:1rem;font-weight:700}
 .sol-symbol{color:#8736bc}
+.usdc-symbol{color:#2775ca;font-size:.85rem}
 .network-card-heading{min-width:0;flex:1}
 .network-card-heading h3{margin:0;color:#d40091;font-family:"Silkscreen",monospace;font-size:.57rem;line-height:1.5}
 .network-card-heading p{margin:2px 0 0;color:#bd5b9c;font-size:.5rem;line-height:1.35;overflow-wrap:anywhere}
@@ -87,6 +95,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .network-refresh:hover{background:#ffe1f5}
 .network-refresh:disabled{opacity:.6;cursor:wait}
 .network-caption{margin:7px 0 0;color:#bd5b9c;font-size:.65rem;line-height:1.4}
+
 .maple-showcase{display:flex;align-items:center;gap:16px;margin-top:24px}
 .maple-avatar-link{flex:0 0 112px;width:112px;height:112px;display:block}
 .maple-avatar{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
@@ -96,14 +105,37 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .nuclear-caption{flex-basis:100%;margin:0;color:#bd5b9c;font-size:.75rem;line-height:1.5}
 .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:13px;border-top:2px dashed #ffd0ed;color:#c780ad;font-family:"Silkscreen",monospace;font-size:.55rem;line-height:1.8}
 .footer-symbol{color:#ff21b6;letter-spacing:3px}
-@media(max-width:380px){body{padding:16px 10px}.profile-content{padding-inline:15px}.profile-header{gap:11px}.avatar{flex-basis:66px;width:66px;height:66px;border-radius:16px}.profile-name{font-size:.95rem}.profile-info{padding-top:39px}.badge img{max-height:34px}.playing-card{gap:10px;padding:10px}.maple-showcase{gap:11px}.maple-avatar-link{flex-basis:88px;width:88px;height:88px}.nuclear-tag{font-size:.55rem}.provenance-badge{gap:5px;padding:5px 6px}.provenance-kaomoji{font-size:.61rem}.provenance-label{font-size:.42rem}}
-@media(max-width:340px){.network-grid{grid-template-columns:1fr}.provenance-kaomoji{display:none}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+@media(max-width:380px){
+body{padding:16px 10px}
+.profile-content{padding-inline:15px}
+.profile-header{gap:11px}
+.avatar{flex-basis:66px;width:66px;height:66px;border-radius:16px}
+.profile-name{font-size:.95rem}
+.profile-info{padding-top:39px}
+.badge img{max-height:34px}
+.playing-card{gap:10px;padding:10px}
+.maple-showcase{gap:11px}
+.maple-avatar-link{flex-basis:88px;width:88px;height:88px}
+.nuclear-tag{font-size:.55rem}
+.provenance-badge{gap:5px;padding:5px 6px}
+.provenance-kaomoji{font-size:.61rem}
+.provenance-label{font-size:.42rem}
+}
+@media(max-width:340px){
+.network-grid{grid-template-columns:1fr}
+.provenance-kaomoji{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
+
 <body>
 <main class="profile-card">
   <div class="cover" aria-hidden="true"></div>
+
   <div class="profile-content">
     <header class="profile-header">
       <img class="avatar" src="https://axayacatl.neocities.org/images/droplet.png" alt="axayacatl's profile icon">
@@ -124,15 +156,21 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <section class="badge-area" aria-labelledby="badge-title">
       <div class="badge-heading">
         <h2 class="badge-title" id="badge-title">♡ badges</h2>
-        <span class="badge-count">05 badges</span>
+        <span class="badge-count">07 badges</span>
       </div>
 
       <div class="badge-list">
-        
+
+        <!-- Infura first -->
+        <a class="badge crypto-tool-badge" href="https://www.infura.io/" target="_blank" rel="noopener noreferrer" title="Infura">
+          <img src="https://www.google.com/s2/favicons?domain=infura.io&sz=128" alt="Infura logo" loading="lazy">
+          <span>INFURA</span>
+        </a>
+
         <a class="badge" href="https://www.exodus.com/" target="_blank" rel="noopener noreferrer" title="Exodus">
           <img src="https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/main/custom_badge/exoduswallet.png" alt="Exodus Wallet badge" loading="lazy">
         </a>
-        
+
         <a class="badge crypto-tool-badge" href="https://cryexc.josedonato.com/" target="_blank" rel="noopener noreferrer" title="Cryexc">
           <img src="https://www.google.com/s2/favicons?domain=cryexc.josedonato.com&sz=128" alt="Cryexc logo" loading="lazy">
           <span>CRYEXC</span>
@@ -157,6 +195,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
           <span class="provenance-label">PROVENANCE<br>BUILDER</span>
           <span class="provenance-mark" aria-hidden="true">𖤐</span>
         </a>
+
       </div>
 
       <p class="badge-status"><a href="https://github.com/axaxayacatl/axaxayacatl/tree/main/custom_badge" target="_blank" rel="noopener noreferrer">badge archive ↗</a></p>
@@ -167,6 +206,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
         <h2 class="badge-title" id="playing-title">♡ currently playing</h2>
         <span class="badge-count">01 game</span>
       </div>
+
       <div class="playing-card">
         <img class="playing-icon" src="https://placehold.co/16x16/ff91d7/70234f.png?text=%E2%96%A0" alt="Pixel game icon" width="48" height="48">
         <div class="playing-details">
@@ -200,6 +240,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
       </div>
 
       <div class="network-grid">
+
+        <!-- Ethereum -->
         <article class="network-card" id="ethereum-card">
           <div class="network-card-top">
             <span class="network-symbol">Ξ</span>
@@ -220,6 +262,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
           <a class="network-explorer" href="https://etherscan.io/" target="_blank" rel="noopener noreferrer">OPEN EXPLORER ↗</a>
         </article>
 
+        <!-- Solana -->
         <article class="network-card" id="solana-card">
           <div class="network-card-top">
             <span class="network-symbol sol-symbol">◎</span>
@@ -239,13 +282,40 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
           </div>
           <a class="network-explorer" href="https://explorer.solana.com/" target="_blank" rel="noopener noreferrer">OPEN EXPLORER ↗</a>
         </article>
+
+        <!-- USDC live price and peg status -->
+        <article class="network-card" id="usdc-card">
+          <div class="network-card-top">
+            <span class="network-symbol usdc-symbol">$</span>
+            <div class="network-card-heading">
+              <h3>USDC</h3>
+              <p>USD COIN · STABLECOIN</p>
+            </div>
+            <span class="network-indicator checking" id="usdc-indicator">CHECKING</span>
+          </div>
+          <div class="network-metric">
+            <span>Live spot price</span>
+            <strong id="usdc-price">Connecting…</strong>
+          </div>
+          <div class="network-metric">
+            <span>Peg assessment</span>
+            <strong id="usdc-peg">—</strong>
+          </div>
+          <div class="network-metric">
+            <span>API response</span>
+            <strong id="usdc-latency">—</strong>
+          </div>
+          <a class="network-explorer" href="https://www.circle.com/usdc" target="_blank" rel="noopener noreferrer">ABOUT USDC ↗</a>
+        </article>
+
       </div>
 
       <div class="network-widget-footer">
-        <span id="network-message" role="status" aria-live="polite">Querying public RPC endpoints…</span>
+        <span id="network-message" role="status" aria-live="polite">Querying public network and price endpoints…</span>
         <button class="network-refresh" id="network-refresh" type="button">↻ REFRESH</button>
       </div>
-      <p class="network-caption">public chain telemetry · not a wallet connection · auto-refreshes every 30 seconds</p>
+
+      <p class="network-caption">public chain telemetry · live market data · no wallet connection · auto-refreshes every 30 seconds</p>
     </section>
 
     <footer class="card-footer">
@@ -268,74 +338,202 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 
   async function rpc(url, method, params = []) {
     const started = performance.now();
+
     const response = await fetch(url, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({jsonrpc:"2.0",id:1,method,params}),
+      body: JSON.stringify({
+        jsonrpc:"2.0",
+        id:1,
+        method,
+        params
+      }),
       cache: "no-store"
     });
+
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
     const payload = await response.json();
-    if (payload.error) throw new Error(payload.error.message || "RPC error");
-    return {result:payload.result,latency:Math.round(performance.now()-started)};
+
+    if (payload.error) {
+      throw new Error(payload.error.message || "RPC error");
+    }
+
+    return {
+      result:payload.result,
+      latency:Math.round(performance.now()-started)
+    };
+  }
+
+  async function refreshEthereum() {
+    try {
+      const data = await rpc(
+        "https://ethereum-rpc.publicnode.com",
+        "eth_blockNumber"
+      );
+
+      const block = Number.parseInt(data.result,16);
+
+      if (!Number.isFinite(block)) {
+        throw new Error("Invalid block response");
+      }
+
+      document.getElementById("ethereum-block").textContent =
+        numberFormat.format(block);
+
+      document.getElementById("ethereum-latency").textContent =
+        `${data.latency} ms`;
+
+      setStatus("ethereum","online","ONLINE");
+      return true;
+
+    } catch {
+      document.getElementById("ethereum-block").textContent =
+        "Unavailable";
+
+      document.getElementById("ethereum-latency").textContent = "—";
+
+      setStatus("ethereum","offline","NO RESPONSE");
+      return false;
+    }
+  }
+
+  async function refreshSolana() {
+    try {
+      const data = await rpc(
+        "https://api.mainnet-beta.solana.com",
+        "getSlot",
+        [{commitment:"finalized"}]
+      );
+
+      const slot = Number(data.result);
+
+      if (!Number.isFinite(slot)) {
+        throw new Error("Invalid slot response");
+      }
+
+      document.getElementById("solana-slot").textContent =
+        numberFormat.format(slot);
+
+      document.getElementById("solana-latency").textContent =
+        `${data.latency} ms`;
+
+      setStatus("solana","online","ONLINE");
+      return true;
+
+    } catch {
+      document.getElementById("solana-slot").textContent =
+        "Unavailable";
+
+      document.getElementById("solana-latency").textContent = "—";
+
+      setStatus("solana","offline","NO RESPONSE");
+      return false;
+    }
+  }
+
+  async function refreshUSDC() {
+    const started = performance.now();
+
+    try {
+      const response = await fetch(
+        "https://api.coinbase.com/v2/prices/USDC-USD/spot",
+        {
+          method:"GET",
+          credentials:"omit",
+          cache:"no-store"
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const payload = await response.json();
+      const price = Number(payload.data.amount);
+      const latency = Math.round(performance.now()-started);
+
+      if (!Number.isFinite(price) || price <= 0) {
+        throw new Error("Invalid USDC price");
+      }
+
+      document.getElementById("usdc-price").textContent =
+        `$${price.toFixed(6)}`;
+
+      document.getElementById("usdc-latency").textContent =
+        `${latency} ms`;
+
+      // A spot price within 0.5% of $1 is displayed as near-peg.
+      const isPegged = price >= 0.995 && price <= 1.005;
+
+      document.getElementById("usdc-peg").textContent =
+        isPegged ? "NEAR $1.00" : "OUTSIDE PEG RANGE";
+
+      setStatus(
+        "usdc",
+        isPegged ? "online" : "offline",
+        isPegged ? "NEAR PEG" : "DEVIATION"
+      );
+
+      return true;
+
+    } catch {
+      document.getElementById("usdc-price").textContent =
+        "Unavailable";
+
+      document.getElementById("usdc-peg").textContent =
+        "Unable to assess";
+
+      document.getElementById("usdc-latency").textContent = "—";
+
+      setStatus("usdc","offline","NO RESPONSE");
+      return false;
+    }
   }
 
   async function refreshNetworks() {
     if (refreshInProgress) return;
+
     refreshInProgress = true;
 
     const button = document.getElementById("network-refresh");
     const message = document.getElementById("network-message");
+
     button.disabled = true;
     button.textContent = "↻ CHECKING";
-    message.textContent = "Checking public RPC endpoints…";
-
-    const tasks = [
-      (async () => {
-        try {
-          const data = await rpc("https://ethereum-rpc.publicnode.com","eth_blockNumber");
-          const block = Number.parseInt(data.result,16);
-          if (!Number.isFinite(block)) throw new Error("Invalid block response");
-          document.getElementById("ethereum-block").textContent = numberFormat.format(block);
-          document.getElementById("ethereum-latency").textContent = `${data.latency} ms`;
-          setStatus("ethereum","online","ONLINE");
-          return true;
-        } catch {
-          document.getElementById("ethereum-block").textContent = "Unavailable";
-          document.getElementById("ethereum-latency").textContent = "—";
-          setStatus("ethereum","offline","NO RESPONSE");
-          return false;
-        }
-      })(),
-      (async () => {
-        try {
-          const data = await rpc("https://api.mainnet-beta.solana.com","getSlot",[{commitment:"finalized"}]);
-          const slot = Number(data.result);
-          if (!Number.isFinite(slot)) throw new Error("Invalid slot response");
-          document.getElementById("solana-slot").textContent = numberFormat.format(slot);
-          document.getElementById("solana-latency").textContent = `${data.latency} ms`;
-          setStatus("solana","online","ONLINE");
-          return true;
-        } catch {
-          document.getElementById("solana-slot").textContent = "Unavailable";
-          document.getElementById("solana-latency").textContent = "—";
-          setStatus("solana","offline","NO RESPONSE");
-          return false;
-        }
-      })()
-    ];
+    message.textContent = "Checking public networks and USDC price…";
 
     try {
-      const results = await Promise.all(tasks);
+      const results = await Promise.all([
+        refreshEthereum(),
+        refreshSolana(),
+        refreshUSDC()
+      ]);
+
       const stamp = new Date().toLocaleTimeString([], {
-        hour:"2-digit",minute:"2-digit",second:"2-digit"
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit"
       });
-      document.getElementById("network-updated").textContent = `UPDATED ${stamp}`;
-      message.textContent = results.every(Boolean)
-        ? "Both public RPC endpoints responded."
-        : results.some(Boolean)
-          ? "One endpoint responded; check the other connection."
-          : "Public RPC endpoints did not respond. Retry shortly.";
+
+      document.getElementById("network-updated").textContent =
+        `UPDATED ${stamp}`;
+
+      const [ethereum,solana,usdc] = results;
+
+      const onlineCount = results.filter(Boolean).length;
+
+      if (onlineCount === 3) {
+        message.textContent =
+          "Ethereum, Solana and USDC checks responded.";
+      } else if (onlineCount > 0) {
+        message.textContent =
+          `${onlineCount}/3 checks responded. Some data is unavailable.`;
+      } else {
+        message.textContent =
+          "Public endpoints did not respond. Retry shortly.";
+      }
+
     } finally {
       button.disabled = false;
       button.textContent = "↻ REFRESH";
@@ -343,12 +541,13 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     }
   }
 
-  document.getElementById("network-refresh").addEventListener("click",refreshNetworks);
+  document.getElementById("network-refresh")
+    .addEventListener("click",refreshNetworks);
+
   refreshNetworks();
+
   window.setInterval(refreshNetworks,30000);
 })();
 </script>
 </body>
 </html>
-
-
