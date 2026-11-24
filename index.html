@@ -17,7 +17,7 @@ body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center
 @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes sigil-pulse{0%,100%{text-shadow:0 0 3px #ff8bd5;opacity:.9}50%{text-shadow:0 0 9px #ff21b6,0 0 14px #ffbce9;opacity:1}}
 
-.profile-card{width:min(100%,510px);overflow:hidden;border:2px solid #ff9cdb;border-radius:22px;background:rgba(255,250,255,.96);box-shadow:5px 6px 0 #f7b7e1;animation:appear .5s ease both}
+.profile-card{width:min(100%,510px);overflow:hidden;border:2px solid #ff9cdb;border-radius:22px;background:#ffffff;box-shadow:5px 6px 0 #f7b7e1;animation:appear .5s ease both}
 
 /* Neon Horned Demoness banner */
 .cover{
@@ -73,7 +73,7 @@ body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center
 .provenance-label{min-width:0;color:#84345f;font-family:"Silkscreen",monospace;font-size:.47rem;line-height:1.6;overflow-wrap:anywhere}
 .provenance-mark{flex:0 0 auto;color:#d40091;font-size:.9rem}
 
-.playing-card{display:flex;align-items:center;gap:13px;padding:13px;border:2px dashed #ffb0e3;border-radius:13px;background:rgba(255,230,247,.48)}
+.playing-card{display:flex;align-items:center;gap:13px;padding:13px;border:2px dashed #ffb0e3;border-radius:13px;background:#ffe6f7}
 .playing-icon{flex:0 0 48px;width:48px;height:48px;display:block;object-fit:cover;image-rendering:pixelated;border:2px solid #ff91d7;border-radius:8px;background:#ffe6f7}
 .playing-details{min-width:0;flex:1}
 .playing-name{margin:0;color:#d40091;font-family:"Silkscreen",monospace;font-size:.7rem;line-height:1.7;overflow-wrap:anywhere}
@@ -85,7 +85,7 @@ body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center
 
 /* Network telemetry */
 .network-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.network-card{min-width:0;padding:9px;border:2px solid #ffb0e3;border-radius:10px;background:rgba(255,245,252,.88)}
+.network-card{min-width:0;padding:9px;border:2px solid #ffb0e3;border-radius:10px;background:#fff5fc}
 .network-card-top{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap}
 .network-symbol{display:grid;flex:0 0 25px;width:25px;height:25px;place-items:center;border-radius:7px;background:#ffe1f5;color:#d40091;font-family:Arial,sans-serif;font-size:1rem;font-weight:700}
 .sol-symbol{color:#8736bc}
@@ -159,6 +159,7 @@ body{padding:16px 10px}
 
     <p class="bio">software engineering · computational systems.<br>an online personality exploring technology, religious sciences, and digital realms.</p>
     <div class="bio-tag">demonologist</div>
+    <a class="profile-link" href="https://basepaint.xyz/@axayacatl" target="_blank" rel="noopener noreferrer">axayacatl.basepaint.xyz ↗</a>
 
     <nav class="profile-links" aria-label="profile links">
       <a class="profile-link" href="https://github.com/axaxayacatl" target="_blank" rel="noopener noreferrer">⌘ github ↗</a>
@@ -173,7 +174,6 @@ body{padding:16px 10px}
 
       <div class="badge-list">
 
-        <!-- Infura first -->
         <a class="badge crypto-tool-badge" href="https://www.infura.io/" target="_blank" rel="noopener noreferrer" title="Infura">
           <img src="https://www.google.com/s2/favicons?domain=infura.io&sz=128" alt="Infura logo" loading="lazy">
           <span>INFURA</span>
@@ -253,7 +253,6 @@ body{padding:16px 10px}
 
       <div class="network-grid">
 
-        <!-- Ethereum -->
         <article class="network-card" id="ethereum-card">
           <div class="network-card-top">
             <span class="network-symbol">Ξ</span>
@@ -274,7 +273,6 @@ body{padding:16px 10px}
           <a class="network-explorer" href="https://etherscan.io/" target="_blank" rel="noopener noreferrer">OPEN EXPLORER ↗</a>
         </article>
 
-        <!-- Solana -->
         <article class="network-card" id="solana-card">
           <div class="network-card-top">
             <span class="network-symbol sol-symbol">◎</span>
@@ -295,7 +293,6 @@ body{padding:16px 10px}
           <a class="network-explorer" href="https://explorer.solana.com/" target="_blank" rel="noopener noreferrer">OPEN EXPLORER ↗</a>
         </article>
 
-        <!-- USDC live price and peg status -->
         <article class="network-card" id="usdc-card">
           <div class="network-card-top">
             <span class="network-symbol usdc-symbol">$</span>
@@ -475,7 +472,6 @@ body{padding:16px 10px}
       document.getElementById("usdc-latency").textContent =
         `${latency} ms`;
 
-      // A spot price within 0.5% of $1 is displayed as near-peg.
       const isPegged = price >= 0.995 && price <= 1.005;
 
       document.getElementById("usdc-peg").textContent =
@@ -530,8 +526,6 @@ body{padding:16px 10px}
 
       document.getElementById("network-updated").textContent =
         `UPDATED ${stamp}`;
-
-      const [ethereum,solana,usdc] = results;
 
       const onlineCount = results.filter(Boolean).length;
 
