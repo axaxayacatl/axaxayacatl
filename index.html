@@ -12,8 +12,7 @@
 <style>
 :root{--pink:#ff8bd5;--neon-pink:#ff21b6;--text:#70234f}
 *{box-sizing:border-box}
-body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center;overflow-x:hidden;color:var(--text);background:radial-gradient(ellipse at 12% 12%,#ffd0f1 0%,transparent 38%),radial-gradient(ellipse at 90% 88%,#ffbce9 0%,transparent 40%),linear-gradient(145deg,#fff0fb,#ffdff4 50%,#fce8ff);font-family:"Pixelify Sans",monospace}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(#ff21b6 1px,transparent 1px),radial-gradient(#ff3f71 1px,transparent 1px);background-size:37px 37px,61px 61px;background-position:0 0,18px 23px;opacity:.13;animation:drift 24s linear infinite}
+body{min-height:100vh;margin:0;padding:24px 14px;display:grid;place-items:center;overflow-x:hidden;color:var(--text);background-color:#ffb6e5;background-image:url("https://raw.githubusercontent.com/axaxayacatl/axaxayacatl/refs/heads/main/graphics/hypnotic_bg.gif");background-size:cover;background-position:center center;background-repeat:no-repeat;background-attachment:fixed;font-family:"Pixelify Sans",monospace}
 @keyframes drift{to{background-position:180px 180px,-100px 120px}}
 @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes sigil-pulse{0%,100%{text-shadow:0 0 3px #ff8bd5;opacity:.9}50%{text-shadow:0 0 9px #ff21b6,0 0 14px #ffbce9;opacity:1}}
